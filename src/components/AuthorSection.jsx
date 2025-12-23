@@ -1,37 +1,43 @@
 
 export default function AuthorSection() {
   return (
-    <section className="bg-black py-20 px-4 sm:px-6 lg:px-8 border-b border-gray-800">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative bg-black py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-800 overflow-hidden">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(157,112,53,0.05),transparent)]"></div>
+      
+      <div className="relative max-w-7xl mx-auto">
         {/* Author Introduction */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 items-center">
           {/* Image Placeholder */}
           <div className="flex flex-col items-center">
-            <div className="bg-dark-container w-full aspect-[3/4] rounded-xl border border-gray-800 flex items-center justify-center mb-4">
-              <div className="text-center">
-                <p className="text-white/50 mb-2">Author Image Placeholder</p>
-                <p className="text-white/30 text-sm">Professional headshot of Anuj Pandey</p>
+            <div className="relative group">
+              <div className="absolute -inset-2 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+              <div className="relative bg-gradient-to-br from-dark-container to-dark-gray w-full aspect-[3/4] rounded-2xl border-2 border-gray-800 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#9d7035]/10 to-transparent"></div>
+                <div className="relative text-center z-10">
+                  <p className="text-white/50 mb-2">Author Image Placeholder</p>
+                  <p className="text-white/30 text-sm">Professional headshot of Anuj Pandey</p>
+                </div>
               </div>
             </div>
-            <p className="text-white/50 text-sm">Caption (optional): Author, Exponential by Design</p>
+            <p className="text-white/40 text-xs mt-4 uppercase tracking-wider">Author, Exponential by Design</p>
           </div>
 
           {/* Content */}
           <div>
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">
+            <h2 className="text-2xl md:text-4xl font-bold text-white mb-8 leading-tight">
               Why learn this from <span className="gradient-text">Anuj Pandey</span>
             </h2>
-            <div className="space-y-4 text-white/80 leading-relaxed">
-              <p className="text-sm md:text-base ">
+            <div className="space-y-6 text-white/80 leading-relaxed">
+              <p className="text-sm md:text-base">
                 Anuj Pandey is a leading strategist and advisor on exponential growth and organizational design. With over 22 years of experience in digital transformation, ecosystem strategy, and growth architecture, he has helped Fortune 500 companies and high-growth startups design organizations that scale exponentially.
               </p>
               <p className="text-sm md:text-base">
                 His work focuses on the intersection of strategy, design, and technology - specifically how organizations must be redesigned to thrive in an era of exponential change. The X-Framework, introduced in Exponential by Design, represents a new blueprint for building organizations that learn, adapt, and scale faster than the market changes.
               </p>
-              <p className="text-sm md:text-base ">
+              <p className="text-sm md:text-base">
                 Anuj's approach challenges conventional wisdom about digital transformation, arguing that most failures stem not from technology limitations, but from organizational design that was never intended for exponential environments. His framework provides leaders with actionable architecture for building compounding growth systems.
               </p>
-              <p className="text-sm md:text-base ">
+              <p className="text-sm md:text-base">
                 This webinar is your opportunity to learn directly from the architect of the X-Framework and gain insights you can apply immediately to your organization's growth strategy.
               </p>
             </div>
@@ -39,28 +45,41 @@ export default function AuthorSection() {
         </div>
 
         {/* Webinar Details Box */}
-        <div className="bg-dark-container p-8 rounded-xl border border-gray-800 mb-8">
-          <p className="text-base md:text-lg font-bold text-white mb-4">
-            This webinar is not a motivational talk. It is a thinking session for leaders who are accountable for growth, relevance, and long-term value creation.
-          </p>
-          <p className="text-base md:text-lg  italic text-white/90 mb-6">
-            "This is not about adopting AI faster - it is about designing organizations that remain intelligent, adaptive, and scalable no matter what technology comes next."
-          </p>
-          <div className="text-white/70 text-sm mb-4">
-            Author of Exponential by Design • 22+ years in digital, ecosystem and growth strategy • Speaker • Advisor • Author
+        <div className="relative bg-gradient-to-br from-dark-container via-dark-container to-dark-gray p-10 rounded-2xl border-2 border-gray-800 mb-10 overflow-hidden">
+          <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#9d7035] to-[#c1a35e]"></div>
+          <div className="relative">
+            <p className="text-base md:text-lg font-bold text-white mb-6 leading-relaxed">
+              This webinar is not a motivational talk. It is a thinking session for leaders who are accountable for growth, relevance, and long-term value creation.
+            </p>
+            <div className="pl-6 border-l-2 border-[#c1a35e]/50 mb-6">
+              <p className="text-sm md:text-lg italic text-white/90 leading-relaxed">
+                "This is not about adopting AI faster - it is about designing organizations that remain intelligent, adaptive, and scalable no matter what technology comes next."
+              </p>
+            </div>
+            <div className="flex flex-wrap gap-4 text-white/60 text-xs md:text-sm mb-6">
+              <span className="px-3 py-1 bg-black/30 rounded-full">Author of Exponential by Design</span>
+              <span className="px-3 py-1 bg-black/30 rounded-full">22+ years experience</span>
+              <span className="px-3 py-1 bg-black/30 rounded-full">Speaker • Advisor</span>
+            </div>
+            <a href="#" className="inline-flex items-center gap-2 text-white hover:text-[#c1a35e] transition-colors font-medium">
+              View LinkedIn
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </a>
           </div>
-          <a href="#" className="text-white underline hover:text-white/80 transition-colors">
-            View LinkedIn
-          </a>
         </div>
 
         {/* Free Chapter Box */}
-        <div className="bg-dark-container p-8 rounded-xl border border-gray-800 mb-12">
-          <h3 className="text-lg md:text-xl font-bold text-white mb-3">Free Chapter (optional)</h3>
-          <p className="text-sm md:text-base  text-white/80 mb-6">
+        <div className="bg-gradient-to-br from-dark-container to-dark-gray p-10 rounded-2xl border-2 border-gray-800 hover:border-[#c1a35e]/50 transition-all duration-300 mb-12">
+          <h3 className="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-3">
+            <span className="w-1 h-8 bg-gradient-to-b from-[#9d7035] to-[#c1a35e] rounded-full"></span>
+            Free Chapter (optional)
+          </h3>
+          <p className="text-sm md:text-base text-white/70 mb-8 leading-relaxed">
             Get a preview of the thinking behind Exponential by Design - including the core ideas that underpin the X-Framework.
           </p>
-          <button className="px-6 py-3 bg-dark-gray text-white rounded-lg font-medium hover:bg-gray-800 transition-colors border border-gray-700">
+          <button className="px-8 py-3 bg-dark-gray text-white rounded-lg font-medium hover:bg-gray-700 transition-all border border-gray-700 hover:border-gray-600">
             Download the free chapter
           </button>
         </div>

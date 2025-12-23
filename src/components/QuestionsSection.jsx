@@ -50,30 +50,35 @@ export default function QuestionsSection() {
   ];
 
   return (
-    <section className="bg-black py-20 px-4 sm:px-6 lg:px-8 border-b border-gray-800">
-      <div className="max-w-6xl mx-auto">
-        <h2 className="text-3xl md:text-4xl font-bold mb-6 leading-tight gradient-text">
-          The questions every CXO is asking, but few frameworks truly answer
-        </h2>
-        <p className="text-base md:text-lg text-white/80 mb-12 max-w-4xl">
-          These are not tactical AI questions. They are strategic design questions that determine whether your organization will scale exponentially or remain trapped in linear growth patterns.
-        </p>
+    <section className="relative bg-gradient-to-b from-black to-gray-950 py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-800">
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(157,112,53,0.05),transparent)]"></div>
+      
+      <div className="relative max-w-7xl mx-auto">
+        <div className="text-center mb-16">
+          <h2 className="text-2xl md:text-4xl font-bold mb-6 leading-tight gradient-text max-w-5xl mx-auto">
+            The questions every CXO is asking, but few frameworks truly answer
+          </h2>
+          <p className="text-sm md:text-lg text-white/70 mb-0 max-w-4xl mx-auto">
+            These are not tactical AI questions. They are strategic design questions that determine whether your organization will scale exponentially or remain trapped in linear growth patterns.
+          </p>
+        </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
           {questions.map((question) => (
             <div
               key={question.number}
-              className="group bg-dark-container p-6 rounded-xl border border-gray-800 hover:border-[#c1a35e] transition-all duration-300 cursor-pointer"
+              className="group relative bg-gradient-to-br from-dark-container to-dark-gray p-8 rounded-2xl border border-gray-800 hover:border-[#c1a35e] transition-all duration-300 cursor-pointer hover:shadow-xl hover:shadow-[#9d7035]/10 hover:-translate-y-1"
             >
-              <div className="flex items-start gap-4">
-                <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gray-600 border border-gray-700 flex items-center justify-center text-sm font-semibold group-hover:bg-[#9d7035] group-hover:text-white transition-colors duration-300">
+              <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#9d7035]/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+              <div className="relative flex items-start gap-5">
+                <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-gray-700 to-gray-800 border border-gray-600 flex items-center justify-center text-base font-bold text-white group-hover:bg-gradient-to-br group-hover:from-[#9d7035] group-hover:to-[#c1a35e] transition-all duration-300 shadow-lg">
                   <span>{question.number}</span>
                 </div>
                 <div className="flex-1">
-                  <h3 className="text-base md:text-lg font-bold text-white mb-2">
+                  <h3 className="text-base md:text-lg font-bold text-white mb-3 leading-snug">
                     {question.title}
                   </h3>
-                  <p className="text-sm md:text-base text-white/60">
+                  <p className="text-sm md:text-base text-white/50 leading-relaxed">
                     {question.subtext}
                   </p>
                 </div>
@@ -82,11 +87,11 @@ export default function QuestionsSection() {
           ))}
         </div>
 
-        <div className="flex justify-between">
-          <p className="text-base md:text-lg text-white/80 mb-6 max-w-4xl">
+        <div className="flex md:flex-row flex-col justify-between">
+          <p className="text-sm md:text-lg text-white/80 mb-6 max-w-4xl">
             This webinar introduces the X-Framework - a new blueprint for designing organizations that learn, adapt, and scale exponentially. Join us to get answers you can take straight to the boardroom.
           </p>
-          <div className="">
+          <div className="flex justify-center items-center">
             <button 
               onClick={handleOpenModal}
               className="px-8 py-4 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] text-white rounded-lg text-base font-semibold transition-all duration-300 ease-in-out hover:opacity-90 hover:scale-105"

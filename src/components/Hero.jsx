@@ -26,94 +26,130 @@ export default function Hero() {
   };
 
   return (
-    <section className="bg-black min-h-screen py-12 px-4 sm:px-6 lg:px-8 border-b border-gray-800">
-      <div className="max-w-6xl mx-auto">
+    <section className="relative bg-black min-h-screen py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-800 overflow-hidden">
+      {/* Subtle background gradient */}
+      <div className="absolute inset-0 bg-gradient-to-br from-[#9d7035]/5 via-transparent to-[#c1a35e]/5 pointer-events-none"></div>
+      
+      <div className="relative max-w-7xl mx-auto">
         {/* Top Info Bar */}
-        <div className="mb-8 text-sm text-white/70">
-          Global book launch • CXO audience • Live Q and A • Recording included
+        <div className="mb-10 text-sm text-white/60 flex flex-wrap items-center gap-2">
+          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">Global book launch</span>
+          <span className="text-white/40">•</span>
+          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">CXO audience</span>
+          <span className="text-white/40">•</span>
+          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">Live Q and A</span>
+          <span className="text-white/40">•</span>
+          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">Recording included</span>
         </div>
 
-        {/* Main Title */}
-        <h1 className="text-3xl md:text-4xl font-bold mb-6 leading-tight gradient-text">
-          Exponential by Design: Why Growth in the AI Era Is a Design Problem - Not a Technology Problem
-        </h1>
+        {/* Two Column Layout */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
+          {/* Left Column - Content */}
+          <div>
+            {/* Main Title */}
+            <h1 className="text-2xl md:text-5xl font-bold mb-8 leading-tight gradient-text">
+              Exponential by Design: Why Growth in the AI Era Is a Design Problem - Not a Technology Problem
+            </h1>
 
-        {/* Description */}
-        <p className="text-base md:text-lg font-bold text-white/90 mb-8 max-w-4xl leading-relaxed">
-          Join the official global book-launch webinar where Anuj Pandey introduces the X-Framework - a new blueprint for designing organizations that learn, adapt, and scale exponentially.
-        </p>
+            {/* Description */}
+            <p className="text-sm md:text-lg text-white/80 mb-10 leading-relaxed">
+              Join the official global book-launch webinar where Anuj Pandey introduces the X-Framework - a new blueprint for designing organizations that learn, adapt, and scale exponentially.
+            </p>
 
-        {/* CTA Buttons */}
-        <div className="flex flex-wrap gap-4 mb-12">
-          <button 
-            onClick={handleOpenModal}
-            className="px-8 py-4 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] text-white rounded-lg text-base font-semibold transition-all duration-300 ease-in-out hover:opacity-90 hover:scale-105"
-          >
-            Reserve My Seat
-          </button>
-          <button className="px-6 py-3 bg-dark-gray text-white rounded-lg font-medium hover:bg-gray-800 transition-colors border border-gray-700">
-            Download Free Chapter
-          </button>
-          <button className="px-6 py-3 bg-dark-gray text-white rounded-lg font-medium hover:bg-gray-800 transition-colors border border-gray-700">
-            See agenda
-          </button>
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-4 mb-12">
+              <div className="w-full flex justify-center md:w-auto md:flex-none">
+                <button 
+                  onClick={handleOpenModal}
+                  className="px-10 py-4 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] text-white rounded-lg text-base font-semibold transition-all duration-300 ease-in-out hover:opacity-90 hover:scale-105 shadow-lg shadow-[#9d7035]/20"
+                >
+                  Reserve My Seat
+                </button>
+              </div>
+              <button className="px-6 py-3 bg-dark-container text-white rounded-lg font-medium hover:bg-dark-gray transition-all border border-gray-700 hover:border-gray-600">
+                Download Free Chapter
+              </button>
+              <button className="px-6 py-3 bg-dark-container text-white rounded-lg font-medium hover:bg-dark-gray transition-all border border-gray-700 hover:border-gray-600">
+                See agenda
+              </button>
+            </div>
+
+            {/* Event Details - Enhanced Design */}
+            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
+              <div className="bg-gradient-to-br from-dark-container to-dark-gray p-6 rounded-xl border border-gray-800 hover:border-[#c1a35e]/50 transition-all duration-300">
+                <label className="text-xs uppercase tracking-wider text-white/50 mb-3 block font-semibold">Date</label>
+                <div className="text-white text-lg font-medium border-b border-white/10 pb-2 min-h-[28px]">Select date</div>
+              </div>
+              <div className="bg-gradient-to-br from-dark-container to-dark-gray p-6 rounded-xl border border-gray-800 hover:border-[#c1a35e]/50 transition-all duration-300">
+                <label className="text-xs uppercase tracking-wider text-white/50 mb-3 block font-semibold">Time</label>
+                <div className="text-white text-lg font-medium border-b border-white/10 pb-2 min-h-[28px]">Select time</div>
+              </div>
+              <div className="bg-gradient-to-br from-dark-container to-dark-gray p-6 rounded-xl border border-gray-800 hover:border-[#c1a35e]/50 transition-all duration-300">
+                <label className="text-xs uppercase tracking-wider text-white/50 mb-3 block font-semibold">Format</label>
+                <div className="text-white text-lg font-medium">Live Online (Global)</div>
+              </div>
+            </div>
+          </div>
+
+          {/* Right Column - Image Placeholder */}
+          <div className="relative flex items-center justify-center lg:justify-center">
+            <div className="relative group w-full max-w-md">
+              <div className="absolute -inset-2 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
+              <div className="relative bg-gradient-to-br from-dark-container to-dark-gray w-full aspect-[4/5] rounded-2xl border-2 border-gray-800 flex items-center justify-center overflow-hidden">
+                <div className="absolute inset-0 bg-gradient-to-br from-[#9d7035]/10 to-transparent"></div>
+                <div className="relative text-center z-10 p-8">
+                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#9d7035]/20 to-[#c1a35e]/20 flex items-center justify-center border-2 border-[#c1a35e]/30">
+                    <svg className="w-10 h-10 text-[#c1a35e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <p className="text-white/50 mb-2 text-sm">Image Placeholder</p>
+                  <p className="text-white/30 text-xs">Book cover or promotional image</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
 
-        {/* Event Details */}
-        <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-12">
-          <div className="bg-dark-container p-4 rounded-lg border border-gray-800">
-            <label className="text-sm text-white/70 mb-2 block">Date</label>
-            <div className="text-white border-b border-white/20 pb-2 min-h-[24px]">Select date</div>
-          </div>
-          <div className="bg-dark-container p-4 rounded-lg border border-gray-800">
-            <label className="text-sm text-white/70 mb-2 block">Time</label>
-            <div className="text-white border-b border-white/20 pb-2 min-h-[24px]">Select time</div>
-          </div>
-          <div className="bg-dark-container p-4 rounded-lg border border-gray-800">
-            <label className="text-sm text-white/70 mb-2 block">Format</label>
-            <div className="text-white pb-2">Live Online (Global)</div>
-          </div>
-        </div>
-
-        {/* Registration Form */}
-        <div className="mb-12">
-          <h2 className="text-3xl md:text-4xl font-bold text-white mb-6">Reserve your seat</h2>
+        {/* Registration Form - Enhanced */}
+        {/* <div className="mb-12 bg-dark-container/50 backdrop-blur-sm p-8 rounded-2xl border border-gray-800/50">
+          <h2 className="text-2xl md:text-4xl font-bold text-white mb-8">Reserve your seat</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div>
-              <label className="block text-sm text-white/70 mb-2">Name</label>
+              <label className="block text-sm font-medium text-white/70 mb-3">Name</label>
               <input
                 type="text"
                 name="name"
                 value={formData.name}
                 onChange={handleChange}
-                className="w-full bg-transparent border-b border-white/20 text-white pb-2 focus:outline-none focus:border-white/50 transition-colors"
+                className="w-full bg-black/30 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#c1a35e] transition-colors placeholder:text-white/30"
                 placeholder="Enter your name"
               />
             </div>
             <div>
-              <label className="block text-sm text-white/70 mb-2">Work email</label>
+              <label className="block text-sm font-medium text-white/70 mb-3">Work email</label>
               <input
                 type="email"
                 name="email"
                 value={formData.email}
                 onChange={handleChange}
-                className="w-full bg-transparent border-b border-white/20 text-white pb-2 focus:outline-none focus:border-white/50 transition-colors"
+                className="w-full bg-black/30 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#c1a35e] transition-colors placeholder:text-white/30"
                 placeholder="Enter your email"
               />
             </div>
             <div>
-              <label className="block text-sm text-white/70 mb-2">Company</label>
+              <label className="block text-sm font-medium text-white/70 mb-3">Company</label>
               <input
                 type="text"
                 name="company"
                 value={formData.company}
                 onChange={handleChange}
-                className="w-full bg-transparent border-b border-white/20 text-white pb-2 focus:outline-none focus:border-white/50 transition-colors"
+                className="w-full bg-black/30 border border-gray-700 rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#c1a35e] transition-colors placeholder:text-white/30"
                 placeholder="Enter your company"
               />
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
 
       {/* Modal Popup */}
