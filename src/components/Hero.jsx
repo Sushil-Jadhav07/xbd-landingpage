@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ReserveSeatModal from '../common/ReserveSeatModal';
+import Picture1 from '../assets/Picture1.jpg';
 
 export default function Hero() {
   const [formData, setFormData] = useState({
@@ -43,12 +44,12 @@ export default function Hero() {
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
           {/* Left Column - Content */}
-          <div className="lg:col-span-3">
+          <div>
             {/* Main Title */}
             <h1 className="text-2xl md:text-5xl font-bold mb-8 !leading-[1.2]">
-              <span className="gradient-text">Exponential by Design</span>: Why Growth in the AI Era Is a Design Problem - Not a Technology Problem
+              <span className="gradient-text">Exponential by Design:</span> Why Growth in the AI Era Is a Design Problem - Not a Technology Problem
             </h1>
 
             {/* Description */}
@@ -91,23 +92,16 @@ export default function Hero() {
             </div>
           </div>
 
-          {/* Right Column - Image Placeholder */}
-          <div className="relative flex items-center justify-center lg:justify-center lg:col-span-2">
-            <div className="relative group w-full max-w-md">
-              <div className="absolute -inset-2 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-              <div className="relative bg-gradient-to-br from-dark-container to-dark-gray w-full aspect-[4/5] rounded-2xl border-2 border-gray-800 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#9d7035]/10 to-transparent"></div>
-                <div className="relative text-center z-10 p-8">
-                  <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-gradient-to-br from-[#9d7035]/20 to-[#c1a35e]/20 flex items-center justify-center border-2 border-[#c1a35e]/30">
-                    <svg className="w-10 h-10 text-[#c1a35e]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                    </svg>
-                  </div>
-                  <p className="text-white/50 mb-2 text-sm">Image Placeholder</p>
-                  <p className="text-white/30 text-xs">Book cover or promotional image</p>
-                </div>
+          {/* Right Column - Image */}
+          <div className="relative flex items-center justify-center lg:justify-center">
+            <div className="relative group w-full max-w-2xl">
+                <img
+                  src={Picture1}
+                  alt="Exponential by Design cover"
+                  className="relative z-10 h-full w-full object-contain"
+                  loading="lazy"
+                />
               </div>
-            </div>
           </div>
         </div>
 

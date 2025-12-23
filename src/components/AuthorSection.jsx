@@ -1,4 +1,6 @@
 
+import AnujImage from '../assets/anuj.webp';
+
 export default function AuthorSection() {
   return (
     <section className="relative bg-black py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-800 overflow-hidden">
@@ -7,17 +9,15 @@ export default function AuthorSection() {
       <div className="relative max-w-7xl mx-auto">
         {/* Author Introduction */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 items-center">
-          {/* Image Placeholder */}
+          {/* Author Image */}
           <div className="flex flex-col items-center">
             <div className="relative group">
-              <div className="absolute -inset-2 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
-              <div className="relative bg-gradient-to-br from-dark-container to-dark-gray w-full aspect-[3/4] rounded-2xl border-2 border-gray-800 flex items-center justify-center overflow-hidden">
-                <div className="absolute inset-0 bg-gradient-to-br from-[#9d7035]/10 to-transparent"></div>
-                <div className="relative text-center z-10">
-                  <p className="text-white/50 mb-2">Author Image Placeholder</p>
-                  <p className="text-white/30 text-sm">Professional headshot of Anuj Pandey</p>
-                </div>
-              </div>
+                <img
+                  src={AnujImage}
+                  alt="Anuj Pandey headshot"
+                  className="relative z-10 h-full w-full object-contain"
+                  loading="lazy"
+                />
             </div>
             <p className="text-white/40 text-xs mt-4 uppercase tracking-wider">Author, Exponential by Design</p>
           </div>
