@@ -32,8 +32,8 @@ export default function LayersSection() {
       
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-4xl font-bold mb-6 leading-tight gradient-text">
-            What you will experience live
+          <h2 className="text-2xl md:text-4xl font-bold mb-6 leading-tight text-white">
+            What you will <span className="gradient-text">experience live</span>
           </h2>
           <p className="text-sm md:text-lg text-white/70 max-w-3xl mx-auto">
             Structured into three layers: clarity, design, and action - so you leave with a framework and a next-step roadmap.

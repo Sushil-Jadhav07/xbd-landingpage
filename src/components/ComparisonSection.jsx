@@ -1,74 +1,169 @@
+import ArrowImage from '../assets/arrow-transparent1.png';
+
 export default function ComparisonSection() {
   return (
     <section className="relative bg-black py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-800 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(157,112,53,0.08),transparent)]"></div>
       
       <div className="relative max-w-7xl mx-auto">
-        <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-4xl font-bold mb-6 leading-tight gradient-text max-w-4xl mx-auto">
-            What most organizations get wrong - and what exponential ones do instead
+        <div className="text-center mb-20">
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight max-w-4xl mx-auto text-white">
+            What most organizations get wrong - and what <span className="gradient-text">exponential ones do instead</span>
           </h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-12">
-          {/* BEFORE */}
-          <div className="relative bg-gradient-to-br from-dark-container via-dark-container to-dark-gray p-10 rounded-2xl border-2 border-gray-800 hover:border-[#9d7035]/50 transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-[#9d7035]/10 hover:-translate-y-1">
-            <div className="absolute top-4 right-4 w-3 h-3 rounded-full bg-[#9d7035]/50"></div>
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-8 flex items-center gap-3">
-              <span className="text-[#9d7035]">BEFORE</span>
-              <span className="text-sm text-white/40 font-normal">(Most Enterprises)</span>
-            </h3>
-            <ul className="space-y-5">
-              <li className="flex items-start gap-4">
-                <span className="text-[#9d7035] mt-1 text-xl">•</span>
-                <span className="text-sm md:text-base text-white/90 leading-relaxed">AI pilots everywhere</span>
+        {/* Comparison Cards Container - desktop/tablet only */}
+        <div className="relative hidden md:flex items-center justify-center gap-8 mb-16 min-h-[500px]">
+          
+          {/* BEFORE Card */}
+          <div 
+            className="relative w-full max-w-md transform -rotate-6 hover:rotate-0 transition-all duration-500 ease-out"
+            style={{ transformOrigin: 'center center' }}
+          >
+            <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-8 rounded-3xl border-2 border-gray-700 shadow-2xl hover:shadow-[#9d7035]/20 transition-all duration-300">
+              {/* BEFORE Label */}
+              <div className="absolute -top-4 left-8 bg-[#9d7035]/20 backdrop-blur-sm px-6 py-2 rounded-full border border-[#9d7035]/50">
+                <span className="text-[#9d7035] font-bold text-lg tracking-wide">BEFORE</span>
+              </div>
+              
+              <div className="mt-8">
+                <h3 className="text-xl font-semibold text-white/60 mb-6">(Most Enterprises)</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3 text-white/80">
+                    <span className="text-[#9d7035] mt-1">●</span>
+                    <span className="text-lg">AI pilots everywhere</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-white/80">
+                    <span className="text-[#9d7035] mt-1">●</span>
+                    <span className="text-lg">Projects and dashboards</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-white/80">
+                    <span className="text-[#9d7035] mt-1">●</span>
+                    <span className="text-lg">Siloed teams</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-white/80">
+                    <span className="text-[#9d7035] mt-1">●</span>
+                    <span className="text-lg">Linear growth</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-white/80">
+                    <span className="text-[#9d7035] mt-1">●</span>
+                    <span className="text-lg">Strategy decks</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          {/* Arrow image */}
+          <div className="absolute -top-10 left-1/2 transform -translate-x-1/2 z-10 hidden md:block">
+            <img
+              src={ArrowImage}
+              alt="Curved arrow from before to after"
+              className="w-56 h-auto transform rotate-6 drop-shadow-[0_6px_20px_rgba(193,163,94,0.28)]"
+              loading="lazy"
+            />
+          </div>
+
+          {/* AFTER Card */}
+          <div 
+            className="relative w-full max-w-md transform rotate-6 hover:rotate-0 transition-all duration-500 ease-out"
+            style={{ transformOrigin: 'center center' }}
+          >
+            <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-8 rounded-3xl border-2 border-[#c1a35e] shadow-2xl hover:shadow-[#c1a35e]/30 transition-all duration-300">
+              {/* AFTER Label */}
+              <div className="absolute -top-4 right-8 bg-gradient-to-r from-[#9d7035] to-[#c1a35e] px-6 py-2 rounded-full shadow-lg">
+                <span className="text-white font-bold text-lg tracking-wide">AFTER</span>
+              </div>
+              
+              <div className="mt-8">
+                <h3 className="text-xl font-semibold gradient-text mb-6">(Exponential by Design)</h3>
+                <ul className="space-y-4">
+                  <li className="flex items-start gap-3 text-white">
+                    <span className="text-[#c1a35e] mt-1">●</span>
+                    <span className="text-lg font-medium">Intelligence systems</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-white">
+                    <span className="text-[#c1a35e] mt-1">●</span>
+                    <span className="text-lg font-medium">Learning loops</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-white">
+                    <span className="text-[#c1a35e] mt-1">●</span>
+                    <span className="text-lg font-medium">Converged ecosystems</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-white">
+                    <span className="text-[#c1a35e] mt-1">●</span>
+                    <span className="text-lg font-medium">Compounding growth</span>
+                  </li>
+                  <li className="flex items-start gap-3 text-white">
+                    <span className="text-[#c1a35e] mt-1">●</span>
+                    <span className="text-lg font-medium">Design architecture</span>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile View - Stack vertically with simple arrow */}
+        <div className="md:hidden space-y-8 mb-12">
+          <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6 rounded-2xl border-2 border-gray-700">
+            <div className="bg-[#9d7035]/20 backdrop-blur-sm px-4 py-2 rounded-full border border-[#9d7035]/50 inline-block mb-4">
+              <span className="text-[#9d7035] font-bold">BEFORE</span>
+            </div>
+            <h3 className="text-lg text-white/60 mb-4">(Most Enterprises)</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3 text-white/80">
+                <span className="text-[#9d7035]">●</span>
+                <span>AI pilots everywhere</span>
               </li>
-              <li className="flex items-start gap-4">
-                <span className="text-[#9d7035] mt-1 text-xl">•</span>
-                <span className="text-sm md:text-base text-white/90 leading-relaxed">Projects and dashboards</span>
+              <li className="flex items-start gap-3 text-white/80">
+                <span className="text-[#9d7035]">●</span>
+                <span>Projects and dashboards</span>
               </li>
-              <li className="flex items-start gap-4">
-                <span className="text-[#9d7035] mt-1 text-xl">•</span>
-                <span className="text-sm md:text-base text-white/90 leading-relaxed">Siloed teams</span>
+              <li className="flex items-start gap-3 text-white/80">
+                <span className="text-[#9d7035]">●</span>
+                <span>Siloed teams</span>
               </li>
-              <li className="flex items-start gap-4">
-                <span className="text-[#9d7035] mt-1 text-xl">•</span>
-                <span className="text-sm md:text-base text-white/90 leading-relaxed">Linear growth</span>
+              <li className="flex items-start gap-3 text-white/80">
+                <span className="text-[#9d7035]">●</span>
+                <span>Linear growth</span>
               </li>
-              <li className="flex items-start gap-4">
-                <span className="text-[#9d7035] mt-1 text-xl">•</span>
-                <span className="text-sm md:text-base text-white/90 leading-relaxed">Strategy decks</span>
+              <li className="flex items-start gap-3 text-white/80">
+                <span className="text-[#9d7035]">●</span>
+                <span>Strategy decks</span>
               </li>
             </ul>
           </div>
 
-          {/* AFTER */}
-          <div className="relative bg-gradient-to-br from-dark-container via-dark-container to-dark-gray p-10 rounded-2xl border-2 border-gray-800 hover:border-[#c1a35e] transition-all duration-300 cursor-pointer hover:shadow-2xl hover:shadow-[#9d7035]/20 hover:-translate-y-1">
-            <div className="absolute top-4 right-4 w-3 h-3 rounded-full bg-[#c1a35e]"></div>
-            <h3 className="text-xl md:text-2xl font-bold text-white mb-8 flex items-center gap-3">
-              <span className="gradient-text">AFTER</span>
-              <span className="text-sm text-white/40 font-normal">(Exponential by Design)</span>
-            </h3>
-            <ul className="space-y-5">
-              <li className="flex items-start gap-4">
-                <span className="text-[#c1a35e] mt-1 text-xl">•</span>
-                <span className="text-sm md:text-base text-white/90 leading-relaxed">Intelligence systems</span>
+          <div className="flex justify-center">
+            <div className="text-[#c1a35e] text-4xl">↓</div>
+          </div>
+
+          <div className="bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 p-6 rounded-2xl border-2 border-[#c1a35e]">
+            <div className="bg-gradient-to-r from-[#9d7035] to-[#c1a35e] px-4 py-2 rounded-full inline-block mb-4">
+              <span className="text-white font-bold">AFTER</span>
+            </div>
+            <h3 className="text-lg gradient-text mb-4">(Exponential by Design)</h3>
+            <ul className="space-y-3">
+              <li className="flex items-start gap-3 text-white">
+                <span className="text-[#c1a35e]">●</span>
+                <span className="font-medium">Intelligence systems</span>
               </li>
-              <li className="flex items-start gap-4">
-                <span className="text-[#c1a35e] mt-1 text-xl">•</span>
-                <span className="text-sm md:text-base text-white/90 leading-relaxed">Learning loops</span>
+              <li className="flex items-start gap-3 text-white">
+                <span className="text-[#c1a35e]">●</span>
+                <span className="font-medium">Learning loops</span>
               </li>
-              <li className="flex items-start gap-4">
-                <span className="text-[#c1a35e] mt-1 text-xl">•</span>
-                <span className="text-sm md:text-base text-white/90 leading-relaxed">Converged ecosystems</span>
+              <li className="flex items-start gap-3 text-white">
+                <span className="text-[#c1a35e]">●</span>
+                <span className="font-medium">Converged ecosystems</span>
               </li>
-              <li className="flex items-start gap-4">
-                <span className="text-[#c1a35e] mt-1 text-xl">•</span>
-                <span className="text-sm md:text-base text-white/90 leading-relaxed">Compounding growth</span>
+              <li className="flex items-start gap-3 text-white">
+                <span className="text-[#c1a35e]">●</span>
+                <span className="font-medium">Compounding growth</span>
               </li>
-              <li className="flex items-start gap-4">
-                <span className="text-[#c1a35e] mt-1 text-xl">•</span>
-                <span className="text-sm md:text-base text-white/90 leading-relaxed">Design architecture</span>
+              <li className="flex items-start gap-3 text-white">
+                <span className="text-[#c1a35e]">●</span>
+                <span className="font-medium">Design architecture</span>
               </li>
             </ul>
           </div>
@@ -83,4 +178,3 @@ export default function ComparisonSection() {
     </section>
   );
 }
-

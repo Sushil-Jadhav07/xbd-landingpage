@@ -22,8 +22,8 @@ export default function MainCTA() {
           <div className="inline-block mb-6 px-4 py-2 bg-dark-container rounded-full border border-gray-800">
             <span className="text-xs uppercase tracking-wider text-white/60">Final Call to Action</span>
           </div>
-          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-8 leading-tight gradient-text max-w-6xl mx-auto">
-            The next decade will not reward the biggest companies. It will reward the best-designed ones.
+          <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-8 leading-tight max-w-6xl mx-auto text-white">
+            The next decade will not reward the biggest companies. It will reward the <span className="gradient-text">best-designed ones.</span>
           </h2>
           <p className="text-sm md:text-lg text-white/70 mb-12 max-w-4xl mx-auto leading-relaxed">
             Join the global launch of Exponential by Design and gain a framework you can take straight to the boardroom.

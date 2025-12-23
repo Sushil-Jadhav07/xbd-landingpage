@@ -26,7 +26,7 @@ export default function Hero() {
   };
 
   return (
-    <section className="relative bg-black min-h-screen py-16 md:py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-800 overflow-hidden">
+    <section className="relative bg-black min-h-screen py-16 md:py-20 px-4 sm:px-6 lg:px-8 border-b border-gray-800 overflow-hidden">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#9d7035]/5 via-transparent to-[#c1a35e]/5 pointer-events-none"></div>
       
@@ -43,12 +43,12 @@ export default function Hero() {
         </div>
 
         {/* Two Column Layout */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
+        <div className="grid grid-cols-1 lg:grid-cols-5 gap-12 items-start mb-16">
           {/* Left Column - Content */}
-          <div>
+          <div className="lg:col-span-3">
             {/* Main Title */}
-            <h1 className="text-2xl md:text-5xl font-bold mb-8 leading-tight gradient-text">
-              Exponential by Design: Why Growth in the AI Era Is a Design Problem - Not a Technology Problem
+            <h1 className="text-2xl md:text-5xl font-bold mb-8 !leading-[1.2]">
+              <span className="gradient-text">Exponential by Design</span>: Why Growth in the AI Era Is a Design Problem - Not a Technology Problem
             </h1>
 
             {/* Description */}
@@ -92,7 +92,7 @@ export default function Hero() {
           </div>
 
           {/* Right Column - Image Placeholder */}
-          <div className="relative flex items-center justify-center lg:justify-center">
+          <div className="relative flex items-center justify-center lg:justify-center lg:col-span-2">
             <div className="relative group w-full max-w-md">
               <div className="absolute -inset-2 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] rounded-2xl blur opacity-20 group-hover:opacity-30 transition-opacity duration-300"></div>
               <div className="relative bg-gradient-to-br from-dark-container to-dark-gray w-full aspect-[4/5] rounded-2xl border-2 border-gray-800 flex items-center justify-center overflow-hidden">

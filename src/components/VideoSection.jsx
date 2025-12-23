@@ -3,8 +3,8 @@ export default function VideoSection() {
     <section className="bg-black py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-800">
       <div className="max-w-5xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-4xl font-bold mb-6 leading-tight gradient-text">
-            The Hidden Architecture Behind Exponential Organizations
+          <h2 className="text-2xl md:text-4xl font-bold mb-6 leading-tight text-white">
+            The Hidden Architecture Behind <span className="gradient-text">Exponential Organizations</span>
           </h2>
           <p className="text-sm md:text-base text-white/60 max-w-2xl mx-auto">
             A short, high-signal preview video (recommended 6 to 8 minutes).

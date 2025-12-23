@@ -55,8 +55,8 @@ export default function QuestionsSection() {
       
       <div className="relative max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-2xl md:text-4xl font-bold mb-6 leading-tight gradient-text max-w-5xl mx-auto">
-            The questions every CXO is asking, but few frameworks truly answer
+          <h2 className="text-2xl md:text-4xl font-bold mb-6 leading-tight max-w-5xl mx-auto text-white">
+            The questions every CXO is asking, but <span className="gradient-text">few frameworks truly answer</span>
           </h2>
           <p className="text-sm md:text-lg text-white/70 mb-0 max-w-4xl mx-auto">
             These are not tactical AI questions. They are strategic design questions that determine whether your organization will scale exponentially or remain trapped in linear growth patterns.

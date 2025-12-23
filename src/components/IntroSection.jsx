@@ -7,8 +7,8 @@ export default function IntroSection() {
       
       <div className="relative max-w-6xl mx-auto">
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-5xl font-bold mb-8 leading-tight gradient-text max-w-6xl mx-auto">
-            The AI era did not break organizations. Their design did.
+          <h2 className="text-2xl md:text-5xl font-bold mb-8 leading-tight max-w-6xl mx-auto text-white">
+            The AI era did not break organizations. <span className="gradient-text">Their design did.</span>
           </h2>
           <p className="text-sm md:text-lg text-white/70 mb-12 max-w-4xl mx-auto leading-relaxed">
             AI tools are everywhere. Budgets are bigger than ever. Talent is more expensive than ever. Yet pilots do not scale, decisions slow down, and growth remains stubbornly linear.
