@@ -42,7 +42,7 @@ export default function ReserveSeatModal({ isOpen, onClose }) {
               </h3>
               
               <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
-                Exponential by Design
+                <span className="gradient-text">Exponential by Design</span>
               </h2>
               
               <p className="text-white/80 text-lg mb-8 leading-relaxed">
