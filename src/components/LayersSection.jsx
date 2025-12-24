@@ -1,4 +1,9 @@
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
+
 export default function LayersSection() {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [layersRef, layersVisible] = useScrollAnimation({ threshold: 0.1 });
+
   const layers = [
     {
       title: "LAYER 1 - CLARITY",
@@ -31,7 +36,7 @@ export default function LayersSection() {
       <div className="absolute inset-0 bg-[linear-gradient(180deg,transparent_0%,rgba(157,112,53,0.03)_50%,transparent_100%)]"></div>
       
       <div className="relative max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-2xl md:text-4xl font-bold mb-6 leading-tight text-white">
             What you will <span className="gradient-text">experience live</span>
           </h2>
@@ -40,7 +45,7 @@ export default function LayersSection() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <div ref={layersRef} className={`grid grid-cols-1 md:grid-cols-3 gap-8 relative transition-all duration-700 delay-200 ${layersVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           {layers.map((layer, index) => (
             <div
               key={index}

@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import ReserveSeatModal from '../common/ReserveSeatModal';
 import Picture1 from '../assets/Picture1.jpg';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function Hero() {
   const [formData, setFormData] = useState({
@@ -26,14 +27,18 @@ export default function Hero() {
     setIsModalOpen(false);
   };
 
+  const [infoBarRef, infoBarVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [leftColRef, leftColVisible] = useScrollAnimation({ threshold: 0.1 });
+  const [rightColRef, rightColVisible] = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <section className="relative bg-black min-h-screen py-16 md:py-20 px-4 sm:px-6 lg:px-8 border-b border-gray-800 overflow-hidden">
+    <section id="home" className="relative bg-black min-h-screen py-16 md:py-20 px-4 sm:px-6 lg:px-8 border-b border-gray-800 overflow-hidden">
       {/* Subtle background gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-[#9d7035]/5 via-transparent to-[#c1a35e]/5 pointer-events-none"></div>
       
       <div className="relative max-w-7xl mx-auto">
         {/* Top Info Bar */}
-        <div className="mb-10 text-sm text-white/60 flex flex-wrap items-center gap-2">
+        <div ref={infoBarRef} className={`mb-10 text-sm text-white/60 flex flex-wrap items-center gap-2 transition-all duration-700 ${infoBarVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
           <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">Global book launch</span>
           <span className="text-white/40">•</span>
           <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">CXO audience</span>
@@ -46,7 +51,7 @@ export default function Hero() {
         {/* Two Column Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start mb-16">
           {/* Left Column - Content */}
-          <div>
+          <div ref={leftColRef} className={`transition-all duration-700 delay-100 ${leftColVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             {/* Main Title */}
             <h1 className="text-2xl md:text-5xl font-bold mb-8 !leading-[1.2]">
               <span className="gradient-text">Exponential by Design:</span> Why Growth in the AI Era Is a Design Problem - Not a Technology Problem
@@ -58,15 +63,13 @@ export default function Hero() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 mb-12">
-              <div className="w-full flex justify-center md:w-auto md:flex-none">
-                <button 
-                  onClick={handleOpenModal}
-                  className="px-10 py-4 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] text-white rounded-lg text-base font-semibold transition-all duration-300 ease-in-out hover:opacity-90 hover:scale-105 shadow-lg shadow-[#9d7035]/20"
-                >
-                  Reserve My Seat
-                </button>
-              </div>
+            <div className="flex flex-wrap gap-4 mb-8">
+              <button 
+                onClick={handleOpenModal}
+                className="px-10 py-4 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] text-white rounded-lg text-base font-semibold transition-all duration-300 ease-in-out hover:opacity-90 hover:scale-105 shadow-lg shadow-[#9d7035]/20"
+              >
+                Reserve My Seat
+              </button>
               <button className="px-6 py-3 bg-dark-container text-white rounded-lg font-medium hover:bg-dark-gray transition-all border border-gray-700 hover:border-gray-600">
                 Download Free Chapter
               </button>
@@ -75,25 +78,57 @@ export default function Hero() {
               </button>
             </div>
 
-            {/* Event Details - Enhanced Design */}
-            <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-              <div className="bg-gradient-to-br from-dark-container to-dark-gray p-6 rounded-xl border border-gray-800 hover:border-[#c1a35e]/50 transition-all duration-300">
-                <label className="text-xs uppercase tracking-wider text-white/50 mb-3 block font-semibold">Date</label>
-                <div className="text-white text-lg font-medium border-b border-white/10 pb-2 min-h-[28px]">Select date</div>
+            {/* Event Details Banner */}
+            <div className="relative bg-gradient-to-br from-dark-container via-dark-container to-dark-gray p-8 rounded-2xl border-2 border-gray-800 overflow-hidden">
+              {/* Subtle background pattern */}
+              <div className="absolute inset-0 opacity-10">
+                <div className="absolute top-0 right-0 w-64 h-64 bg-[#9d7035]/20 rounded-full blur-3xl"></div>
+                <div className="absolute bottom-0 left-0 w-48 h-48 bg-[#c1a35e]/20 rounded-full blur-3xl"></div>
               </div>
-              <div className="bg-gradient-to-br from-dark-container to-dark-gray p-6 rounded-xl border border-gray-800 hover:border-[#c1a35e]/50 transition-all duration-300">
-                <label className="text-xs uppercase tracking-wider text-white/50 mb-3 block font-semibold">Time</label>
-                <div className="text-white text-lg font-medium border-b border-white/10 pb-2 min-h-[28px]">Select time</div>
-              </div>
-              <div className="bg-gradient-to-br from-dark-container to-dark-gray p-6 rounded-xl border border-gray-800 hover:border-[#c1a35e]/50 transition-all duration-300">
-                <label className="text-xs uppercase tracking-wider text-white/50 mb-3 block font-semibold">Format</label>
-                <div className="text-white text-lg font-medium">Live Online (Global)</div>
+              
+              <div className="relative flex flex-col gap-6">
+                {/* Date and Times */}
+                <div className="flex flex-col md:flex-row md:items-center gap-4 md:gap-6">
+                  {/* Date */}
+                  <div className="flex items-center gap-3">
+                    <svg className="w-5 h-5 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                    </svg>
+                    <span className="text-white text-sm md:text-base font-medium">6th January 2026</span>
+                  </div>
+
+                  {/* Vertical Divider */}
+                  <div className="hidden md:block w-px h-8 bg-white/20"></div>
+
+                  {/* Times */}
+                  <div className="flex flex-col md:flex-row md:items-center gap-3 md:gap-4">
+                    <div className="flex items-center gap-3">
+                      <svg className="w-5 h-5 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                      </svg>
+                      <span className="text-white text-sm md:text-base font-medium">9:30 AM - 2:00 PM IST</span>
+                    </div>
+                    
+                    {/* Vertical Divider */}
+                    <div className="hidden md:block w-px h-8 bg-white/20"></div>
+                    
+                    <span className="text-white text-sm md:text-base font-medium">12:00 PM - 4:30 PM SGT</span>
+                  </div>
+                </div>
+
+                {/* Register Now Button */}
+                <button
+                  onClick={handleOpenModal}
+                  className="px-8 py-4 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] hover:opacity-90 text-white rounded-lg text-base font-semibold transition-all duration-300 ease-in-out shadow-lg shadow-[#9d7035]/20 self-start"
+                >
+                  Register Now
+                </button>
               </div>
             </div>
           </div>
 
           {/* Right Column - Image */}
-          <div className="relative flex items-center justify-center lg:justify-center">
+          <div ref={rightColRef} className={`relative flex items-center justify-center lg:justify-center transition-all duration-700 delay-200 ${rightColVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             <div className="relative group w-full max-w-2xl">
                 <img
                   src={Picture1}

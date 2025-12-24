@@ -6,6 +6,7 @@ import QuestionsSection from './components/QuestionsSection'
 import ComparisonSection from './components/ComparisonSection'
 import LayersSection from './components/LayersSection'
 import AuthorSection from './components/AuthorSection'
+import AgendaSection from './components/AgendaSection'
 import MainCTA from './components/MainCTA'
 import Footer from './components/Footer'
 
@@ -20,6 +21,7 @@ function App() {
       <ComparisonSection />
       <LayersSection />
       <AuthorSection />
+      <AgendaSection />
       {/* Main CTA */}
       <MainCTA />
       <Footer />

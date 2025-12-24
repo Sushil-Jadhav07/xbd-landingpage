@@ -1,16 +1,22 @@
 
 import AnujImage from '../assets/anuj.webp';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function AuthorSection() {
+  const [imageRef, imageVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [contentRef, contentVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [box1Ref, box1Visible] = useScrollAnimation({ threshold: 0.1 });
+  const [box2Ref, box2Visible] = useScrollAnimation({ threshold: 0.1 });
+
   return (
-    <section className="relative bg-black py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-800 overflow-hidden">
+    <section id="speakers" className="relative bg-black py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-800 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_50%,rgba(157,112,53,0.05),transparent)]"></div>
       
       <div className="relative max-w-7xl mx-auto">
         {/* Author Introduction */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16 mb-20 items-center">
           {/* Author Image */}
-          <div className="flex flex-col items-center">
+          <div ref={imageRef} className={`flex flex-col items-center transition-all duration-700 ${imageVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             <div className="relative group">
                 <img
                   src={AnujImage}
@@ -23,7 +29,7 @@ export default function AuthorSection() {
           </div>
 
           {/* Content */}
-          <div>
+          <div ref={contentRef} className={`transition-all duration-700 delay-200 ${contentVisible ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-8'}`}>
             <h2 className="text-2xl md:text-4xl font-bold text-white mb-8 leading-tight">
               Why learn this from <span className="gradient-text">Anuj Pandey</span>
             </h2>
@@ -45,7 +51,7 @@ export default function AuthorSection() {
         </div>
 
         {/* Webinar Details Box */}
-        <div className="relative bg-gradient-to-br from-dark-container via-dark-container to-dark-gray p-10 rounded-2xl border-2 border-gray-800 mb-10 overflow-hidden">
+        <div ref={box1Ref} className={`relative bg-gradient-to-br from-dark-container via-dark-container to-dark-gray p-10 rounded-2xl border-2 border-gray-800 mb-10 overflow-hidden transition-all duration-700 delay-300 ${box1Visible ? 'opacity-100 scale-100 translate-y-0' : 'opacity-0 scale-95 translate-y-8'}`}>
           <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-[#9d7035] to-[#c1a35e]"></div>
           <div className="relative">
             <p className="text-base md:text-lg font-bold text-white mb-6 leading-relaxed">
@@ -71,7 +77,7 @@ export default function AuthorSection() {
         </div>
 
         {/* Free Chapter Box */}
-        <div className="bg-gradient-to-br from-dark-container to-dark-gray p-10 rounded-2xl border-2 border-gray-800 hover:border-[#c1a35e]/50 transition-all duration-300 mb-12">
+        <div ref={box2Ref} className={`bg-gradient-to-br from-dark-container to-dark-gray p-10 rounded-2xl border-2 border-gray-800 hover:border-[#c1a35e]/50 transition-all duration-700 mb-12 delay-400 ${box2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h3 className="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-3">
             <span className="w-1 h-8 bg-gradient-to-b from-[#9d7035] to-[#c1a35e] rounded-full"></span>
             Free Chapter (optional)

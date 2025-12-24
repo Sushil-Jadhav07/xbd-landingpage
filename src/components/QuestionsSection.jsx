@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import ReserveSeatModal from '../common/ReserveSeatModal';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function QuestionsSection() {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -11,6 +12,10 @@ export default function QuestionsSection() {
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
+
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [ctaRef, ctaVisible] = useScrollAnimation({ threshold: 0.2 });
+
   const questions = [
     {
       number: 1,
@@ -50,11 +55,11 @@ export default function QuestionsSection() {
   ];
 
   return (
-    <section className="relative bg-gradient-to-b from-black to-gray-950 py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-800">
+    <section id="who-should-attend" className="relative bg-gradient-to-b from-black to-gray-950 py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-800">
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(157,112,53,0.05),transparent)]"></div>
       
       <div className="relative max-w-7xl mx-auto">
-        <div className="text-center mb-16">
+        <div ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-2xl md:text-4xl font-bold mb-6 leading-tight max-w-5xl mx-auto text-white">
             The questions every CXO is asking, but <span className="gradient-text">few frameworks truly answer</span>
           </h2>
@@ -64,10 +69,10 @@ export default function QuestionsSection() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
-          {questions.map((question) => (
+          {questions.map((question, index) => (
             <div
               key={question.number}
-              className="group relative bg-gradient-to-br from-dark-container to-dark-gray p-8 rounded-2xl border border-gray-800 hover:border-[#c1a35e] transition-all duration-300 cursor-pointer hover:shadow-xl hover:shadow-[#9d7035]/10 hover:-translate-y-1"
+              className={`group relative bg-gradient-to-br from-dark-container to-dark-gray p-8 rounded-2xl border border-gray-800 hover:border-[#c1a35e] transition-all duration-700 cursor-pointer hover:shadow-xl hover:shadow-[#9d7035]/10 hover:-translate-y-1 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}
             >
               <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#9d7035]/10 to-transparent rounded-bl-full opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
               <div className="relative flex items-start gap-5">
@@ -87,7 +92,7 @@ export default function QuestionsSection() {
           ))}
         </div>
 
-        <div className="flex md:flex-row flex-col justify-between">
+        <div ref={ctaRef} className={`flex md:flex-row flex-col justify-between transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="text-sm md:text-lg text-white/80 mb-6 max-w-4xl">
             This webinar introduces the X-Framework - a new blueprint for designing organizations that learn, adapt, and scale exponentially. Join us to get answers you can take straight to the boardroom.
           </p>

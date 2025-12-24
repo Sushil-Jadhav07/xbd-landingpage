@@ -1,19 +1,23 @@
 import ArrowImage from '../assets/arrow-transparent1.png';
+import { useScrollAnimation } from '../hooks/useScrollAnimation';
 
 export default function ComparisonSection() {
+  const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
+  const [cardsRef, cardsVisible] = useScrollAnimation({ threshold: 0.1 });
+
   return (
     <section className="relative bg-black py-24 px-4 sm:px-6 lg:px-8 border-b border-gray-800 overflow-hidden">
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,rgba(157,112,53,0.08),transparent)]"></div>
       
       <div className="relative max-w-7xl mx-auto">
-        <div className="text-center mb-20">
+        <div ref={headerRef} className={`text-center mb-20 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-3xl md:text-5xl font-bold mb-6 leading-tight max-w-4xl mx-auto text-white">
             What most organizations get wrong - and what <span className="gradient-text">exponential ones do instead</span>
           </h2>
         </div>
 
         {/* Comparison Cards Container - desktop/tablet only */}
-        <div className="relative hidden md:flex items-center justify-center gap-8 mb-16 min-h-[500px]">
+        <div ref={cardsRef} className={`relative hidden md:flex items-center justify-center gap-8 mb-16 min-h-[500px] transition-all duration-700 delay-200 ${cardsVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           
           {/* BEFORE Card */}
           <div 
