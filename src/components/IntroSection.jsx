@@ -4,6 +4,7 @@ export default function IntroSection() {
   const [headerRef, headerVisible] = useScrollAnimation({ threshold: 0.2 });
   const [contentRef, contentVisible] = useScrollAnimation({ threshold: 0.2 });
   const [statsRef, statsVisible] = useScrollAnimation({ threshold: 0.1, rootMargin: '100px' });
+  const [footerRef, footerVisible] = useScrollAnimation({ threshold: 0.1, rootMargin: '100px' });
 
   const stats = [
     {
@@ -36,7 +37,8 @@ export default function IntroSection() {
           Most Organizations Don’t Have a Technology Problem.  <span className="gradient-text">They Have a Design Problem.</span>
           </h2>
           <p className="text-sm md:text-lg text-white/70 mb-12 max-w-4xl mx-auto leading-relaxed">
-            AI tools are everywhere. Budgets are bigger than ever. Talent is more expensive than ever. Yet pilots do not scale, decisions slow down, and growth remains stubbornly linear.
+          Because most organizations are still designed for <span className="gradient-text">linear execution</span> not <span className="gradient-text">non-linear learning</span>.
+They optimize processes — but not feedback. They deploy AI — but don’t redesign decision loops.They scale systems — but not intelligence.
           </p>
         </div>
         
@@ -76,6 +78,13 @@ export default function IntroSection() {
               </div>
             ))}
           </div>
+        </div>
+
+        {/* Footer Description */}
+        <div ref={footerRef} className={`mt-0 pt-8 text-center transition-all duration-700 ${footerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <p className="text-sm md:text-base text-white/60 max-w-4=5xl mx-auto leading-relaxed">
+          In the AI era, growth doesn’t break because technology fails. It breaks because organizations were never designed to learn at speed.
+          </p>
         </div>
       </div>
     </section>
