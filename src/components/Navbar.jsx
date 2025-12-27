@@ -25,12 +25,9 @@ export default function Navbar() {
     <>
       <header className="bg-black border-b border-gray-900 sticky top-0 z-50 backdrop-blur-sm bg-black/95">
         <nav className="w-full mx-auto px-4 sm:px-6 lg:px-8 py-4">
-          <div className="flex items-center justify-between relative">
-            {/* Left Spacer - Equal width to right side for centering */}
-            <div className="flex-1"></div>
-
-            {/* Logo - Centered */}
-            <div className="absolute left-1/2 transform -translate-x-1/2 flex items-center gap-3">
+          <div className="flex items-center justify-between">
+            {/* Logo - Left Side */}
+            <div className="flex items-center gap-3">
               <a 
                 href="#home" 
                 onClick={(e) => {
@@ -51,7 +48,7 @@ export default function Navbar() {
             </div>
 
             {/* Nav Links and Button - Right Side */}
-            <div className="flex-1 flex items-center justify-end gap-6">
+            <div className="flex items-center gap-6">
               <div className="hidden lg:flex items-center gap-8">
                 {navLinks.map((link) => (
                   <a

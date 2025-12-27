@@ -3,6 +3,7 @@ import Hero from './components/Hero'
 import IntroSection from './components/IntroSection'
 import VideoSection from './components/VideoSection'
 import QuestionsSection from './components/QuestionsSection'
+import WhoShouldAttendSection from './components/WhoShouldAttendSection'
 import ComparisonSection from './components/ComparisonSection'
 import LayersSection from './components/LayersSection'
 import AuthorSection from './components/AuthorSection'
@@ -18,6 +19,7 @@ function App() {
       <IntroSection />
       <VideoSection />
       <QuestionsSection />
+      <WhoShouldAttendSection />
       <ComparisonSection />
       <LayersSection />
       <AuthorSection />
