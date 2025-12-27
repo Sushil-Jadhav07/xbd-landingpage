@@ -77,7 +77,7 @@ export default function AuthorSection() {
         </div>
 
         {/* Free Chapter Box */}
-        <div ref={box2Ref} className={`bg-gradient-to-br from-dark-container to-dark-gray p-10 rounded-2xl border-2 border-gray-800 hover:border-[#c1a35e]/50 transition-all duration-700 mb-12 delay-400 ${box2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        {/* <div ref={box2Ref} className={`bg-gradient-to-br from-dark-container to-dark-gray p-10 rounded-2xl border-2 border-gray-800 hover:border-[#c1a35e]/50 transition-all duration-700 mb-12 delay-400 ${box2Visible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h3 className="text-xl md:text-2xl font-bold text-white mb-4 flex items-center gap-3">
             <span className="w-1 h-8 bg-gradient-to-b from-[#9d7035] to-[#c1a35e] rounded-full"></span>
             Free Chapter (optional)
@@ -88,7 +88,7 @@ export default function AuthorSection() {
           <button className="px-8 py-3 bg-dark-gray text-white rounded-lg font-medium hover:bg-gray-700 transition-all border border-gray-700 hover:border-gray-600">
             Download the free chapter
           </button>
-        </div>
+        </div> */}
         
       </div>
     </section>

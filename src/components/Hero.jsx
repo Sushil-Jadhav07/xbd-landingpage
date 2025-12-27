@@ -39,13 +39,13 @@ export default function Hero() {
       <div className="relative max-w-7xl mx-auto">
         {/* Top Info Bar */}
         <div ref={infoBarRef} className={`mb-10 text-sm text-white/60 flex flex-wrap items-center gap-2 transition-all duration-700 ${infoBarVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">Global book launch</span>
+          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">Global Masterclass</span>
           <span className="text-white/40">•</span>
-          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">CXO audience</span>
+          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">CXO & Senior Leadership Focus</span>
           <span className="text-white/40">•</span>
           <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">Live Q and A</span>
           <span className="text-white/40">•</span>
-          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">Recording included</span>
+          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">BEYOND THE HYPE</span>
         </div>
 
         {/* Two Column Layout */}
@@ -54,12 +54,12 @@ export default function Hero() {
           <div ref={leftColRef} className={`transition-all duration-700 delay-100 ${leftColVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             {/* Main Title */}
             <h1 className="text-2xl md:text-5xl font-bold mb-8 !leading-[1.2]">
-              <span className="gradient-text">Exponential by Design:</span> Why Growth in the AI Era Is a Design Problem - Not a Technology Problem
+              <span className="gradient-text">Exponential by Design™ Masterclass:</span> Why Growth in the AI Era Is a Design Problem - Not a Technology Problem
             </h1>
 
             {/* Description */}
             <p className="text-sm md:text-lg text-white/80 mb-10 leading-relaxed">
-              Join the official global book-launch webinar where Anuj Pandey introduces the X-Framework - a new blueprint for designing organizations that learn, adapt, and scale exponentially.
+            A live executive masterclass on how future-ready organizations design learning, adaptability, and scale into their core — before technology even enters the conversation.
             </p>
 
             {/* CTA Buttons */}
@@ -106,13 +106,13 @@ export default function Hero() {
                       <svg className="w-5 h-5 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                       </svg>
-                      <span className="text-white text-sm md:text-base font-medium">9:30 AM - 2:00 PM IST</span>
+                      <span className="text-white text-sm md:text-base font-medium">7:00 PM IST – 8:30 PM IST</span>
                     </div>
                     
                     {/* Vertical Divider */}
-                    <div className="hidden md:block w-px h-8 bg-white/20"></div>
+                    {/* <div className="hidden md:block w-px h-8 bg-white/20"></div>
                     
-                    <span className="text-white text-sm md:text-base font-medium">12:00 PM - 4:30 PM SGT</span>
+                    <span className="text-white text-sm md:text-base font-medium">12:00 PM - 4:30 PM SGT</span> */}
                   </div>
                 </div>
 

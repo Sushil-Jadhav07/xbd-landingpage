@@ -22,9 +22,9 @@ export default function MainCTA() {
       
       <div className="relative max-w-5xl mx-auto">
         <div ref={contentRef} className={`text-center transition-all duration-700 ${contentVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <div className="inline-block mb-6 px-4 py-2 bg-dark-container rounded-full border border-gray-800">
+          {/* <div className="inline-block mb-6 px-4 py-2 bg-dark-container rounded-full border border-gray-800">
             <span className="text-xs uppercase tracking-wider text-white/60">Final Call to Action</span>
-          </div>
+          </div> */}
           <h2 className="text-2xl md:text-4xl lg:text-6xl font-bold mb-8 leading-tight max-w-6xl mx-auto text-white">
             The next decade will not reward the biggest companies. It will reward the <span className="gradient-text">best-designed ones.</span>
           </h2>

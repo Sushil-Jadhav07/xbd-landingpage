@@ -94,7 +94,7 @@ export default function QuestionsSection() {
 
         <div ref={ctaRef} className={`flex md:flex-row flex-col justify-between transition-all duration-700 ${ctaVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <p className="text-sm md:text-lg text-white/80 mb-6 max-w-4xl">
-            This webinar introduces the X-Framework - a new blueprint for designing organizations that learn, adapt, and scale exponentially. Join us to get answers you can take straight to the boardroom.
+            This Masterclass introduces the X-Framework - a new blueprint for designing organizations that learn, adapt, and scale exponentially. Join us to get answers you can take straight to the boardroom.
           </p>
           <div className="flex justify-center items-center">
             <button 

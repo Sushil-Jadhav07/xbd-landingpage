@@ -4,7 +4,7 @@ export default function Footer() {
       <div className="max-w-6xl mx-auto">
         <div className="flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-white/60 text-sm">
-            © 2025 Xponential By Design
+            © 2025 Exponential By Design
           </p>
           <div className="flex gap-6 text-white/60 text-sm">
             <a href="#" className="hover:text-white transition-colors">Terms</a>
