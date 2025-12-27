@@ -63,14 +63,14 @@ export default function ReserveSeatModal({ isOpen, onClose }) {
                   <svg className="w-6 h-6 text-[#c1a35e] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
-                  <span className="text-white text-lg font-medium">09:30 AM – 02:00 PM IST</span>
+                  <span className="text-white text-lg font-medium">7:00 PM IST – 8:30 PM IST</span>
                 </div>
-                <div className="flex items-center gap-3">
+                {/* <div className="flex items-center gap-3">
                   <svg className="w-6 h-6 text-[#c1a35e] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                   </svg>
                   <span className="text-white text-lg font-medium">12:00 PM – 04:30 PM SGT</span>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>
