@@ -17,15 +17,24 @@ function App() {
       <Navbar />
       <Hero />
       <IntroSection />
+      
       <VideoSection />
+
       <QuestionsSection />
+
       <WhoShouldAttendSection />
+
       <ComparisonSection />
+
       <LayersSection />
+      
       <AuthorSection />
+
       <AgendaSection />
+
       {/* Main CTA */}
       <MainCTA />
+
       <Footer />
     </div>
   )
