@@ -1,14 +1,12 @@
-import { useState } from 'react';
 import ReserveSeatForm from './ReserveSeatForm';
 
 export default function ReserveSeatModal({ isOpen, onClose }) {
   if (!isOpen) return null;
 
   const handleFormSubmit = (formData) => {
-    console.log('Form submitted:', formData);
-    // You can add your form submission logic here
-    // For example, send to an API
-    alert('Thank you! Your seat has been reserved.');
+    // Form submission is handled by ReserveSeatForm component via Mailchimp
+    // Navigation to thank you page is handled by ReserveSeatForm
+    // Close the modal when form is submitted
     onClose();
   };
 
@@ -30,60 +28,58 @@ export default function ReserveSeatModal({ isOpen, onClose }) {
           ×
         </button>
 
-        {/* Two Column Layout */}
+        {/* Two Column Layout - Registration Form */}
         <div className="grid grid-cols-1 lg:grid-cols-2">
-          {/* Left Side - Event Details */}
-          <div className="relative bg-black p-8 lg:p-12 border-r border-gray-800 min-h-[500px] lg:min-h-full">
-            
-
-            <div className="relative z-10 h-full flex flex-col">
-              <h3 className="text-white/60 text-sm uppercase tracking-wider font-semibold mb-6">
-                Event details
-              </h3>
+            {/* Left Side - Event Details */}
+            <div className="relative bg-black p-8 lg:p-12 border-r border-gray-800 min-h-[500px] lg:min-h-full">
               
-              <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
-                <span className="gradient-text">Exponential by Design</span>
-              </h2>
+
+              <div className="relative z-10 h-full flex flex-col">
+                <h3 className="text-white/60 text-sm uppercase tracking-wider font-semibold mb-6">
+                  Event details
+                </h3>
+                
+                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4 leading-tight">
+                  <span className="gradient-text">Exponential by Design</span>
+                </h2>
+                
               
-              <p className="text-white/80 text-lg mb-8 leading-relaxed">
-                Global Book Launch Webinar: Why Growth in the AI Era Is a Design Problem - Not a Technology Problem
-              </p>
 
-              {/* Date */}
-              <div className="flex items-center gap-3 mb-6">
-                <svg className="w-6 h-6 text-[#c1a35e] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
-                </svg>
-                <span className="text-white text-lg font-medium">6th January 2026</span>
-              </div>
-
-              {/* Times */}
-              <div className="space-y-3">
-                <div className="flex items-center gap-3">
+                {/* Date */}
+                <div className="flex items-center gap-3 mb-6">
                   <svg className="w-6 h-6 text-[#c1a35e] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                   </svg>
-                  <span className="text-white text-lg font-medium">7:00 PM IST – 8:30 PM IST</span>
+                  <span className="text-white text-lg font-medium">6th January 2026</span>
                 </div>
-                {/* <div className="flex items-center gap-3">
-                  <svg className="w-6 h-6 text-[#c1a35e] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
-                  <span className="text-white text-lg font-medium">12:00 PM – 04:30 PM SGT</span>
-                </div> */}
+
+                {/* Times */}
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <svg className="w-6 h-6 text-[#c1a35e] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-white text-lg font-medium">7:00 PM IST – 8:30 PM IST</span>
+                  </div>
+                  {/* <div className="flex items-center gap-3">
+                    <svg className="w-6 h-6 text-[#c1a35e] flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                    <span className="text-white text-lg font-medium">12:00 PM – 04:30 PM SGT</span>
+                  </div> */}
+                </div>
               </div>
             </div>
-          </div>
 
-          {/* Right Side - Registration Form */}
-          <div className="bg-gradient-to-br from-dark-container to-dark-gray p-8 lg:p-12 min-h-[500px] lg:min-h-full">
-            <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
-              Register now
-            </h2>
-            
-            <ReserveSeatForm onSubmit={handleFormSubmit} />
+            {/* Right Side - Registration Form */}
+            <div className="bg-gradient-to-br from-dark-container to-dark-gray p-8 lg:p-12 min-h-[500px] lg:min-h-full">
+              <h2 className="text-3xl md:text-4xl font-bold text-white mb-8">
+                Register now
+              </h2>
+              
+              <ReserveSeatForm onSubmit={handleFormSubmit} />
+            </div>
           </div>
-        </div>
       </div>
     </div>
   );

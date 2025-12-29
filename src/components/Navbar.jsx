@@ -16,8 +16,8 @@ export default function Navbar() {
   const navLinks = [
     { name: 'Home', href: '#home' },
     { name: 'About', href: '#about' },
-    { name: 'Who Should Attend', href: '#who-should-attend' },
-    { name: 'Speakers', href: '#speakers' },
+    { name: 'Who Should Attend', href: '#who-this-masterclass-is-for' },
+    { name: 'Speaker', href: '#speakers' },
     { name: 'Agenda', href: '#agenda' }
   ];
 

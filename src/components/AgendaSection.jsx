@@ -65,7 +65,7 @@ export default function AgendaSection() {
         {/* Section Header */}
         <div ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h2 className="text-2xl md:text-4xl font-bold mb-6 leading-tight text-white">
-            Webinar <span className="gradient-text">Agenda</span>
+          Masterclass <span className="gradient-text">Agenda</span>
           </h2>
           <p className="text-white/60 text-sm md:text-base max-w-2xl mx-auto">
             A structured exploration of exponential growth design principles

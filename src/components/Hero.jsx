@@ -27,6 +27,13 @@ export default function Hero() {
     setIsModalOpen(false);
   };
 
+  const handleScrollToAgenda = () => {
+    const element = document.querySelector('#agenda');
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  };
+
   const [infoBarRef, infoBarVisible] = useScrollAnimation({ threshold: 0.1 });
   const [leftColRef, leftColVisible] = useScrollAnimation({ threshold: 0.1 });
   const [rightColRef, rightColVisible] = useScrollAnimation({ threshold: 0.1 });
@@ -38,14 +45,13 @@ export default function Hero() {
       
       <div className="relative max-w-7xl mx-auto">
         {/* Top Info Bar */}
-        <div ref={infoBarRef} className={`mb-10 text-sm text-white/60 flex flex-wrap items-center gap-2 transition-all duration-700 ${infoBarVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
-          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">Global Masterclass</span>
-          <span className="text-white/40">•</span>
-          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">CXO & Senior Leadership Focus</span>
-          <span className="text-white/40">•</span>
-          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">Live Q and A</span>
-          <span className="text-white/40">•</span>
-          <span className="px-3 py-1 bg-dark-container rounded-full border border-gray-800">BEYOND THE HYPE</span>
+        <div ref={infoBarRef} className={`mb-10 text-white/60 transition-all duration-700 ${infoBarVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'}`}>
+          <div className="grid grid-cols-2 gap-2 md:flex md:flex-wrap md:items-center md:gap-2">
+            <span className="px-2 py-0.5 md:px-3 md:py-1 text-xs md:text-sm bg-dark-container rounded-full border border-gray-800 text-center whitespace-nowrap inline-flex items-center justify-center">Global Masterclass</span>
+            <span className="px-2 py-0.5 md:px-3 md:py-1 text-xs md:text-sm bg-dark-container rounded-full border border-gray-800 text-center whitespace-nowrap inline-flex items-center justify-center">CXO </span>
+            <span className="px-2 py-0.5 md:px-3 md:py-1 text-xs md:text-sm bg-dark-container rounded-full border border-gray-800 text-center whitespace-nowrap inline-flex items-center justify-center">Live Q and A</span>
+            <span className="px-2 py-0.5 md:px-3 md:py-1 text-xs md:text-sm bg-dark-container rounded-full border border-gray-800 text-center whitespace-nowrap inline-flex items-center justify-center">BEYOND THE HYPE</span>
+          </div>
         </div>
 
         {/* Two Column Layout */}
@@ -53,7 +59,7 @@ export default function Hero() {
           {/* Left Column - Content */}
           <div ref={leftColRef} className={`transition-all duration-700 delay-100 ${leftColVisible ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`}>
             {/* Main Title */}
-            <h1 className="text-2xl md:text-5xl font-bold mb-8 !leading-[1.2]">
+            <h1 className="text-xl md:text-4xl font-bold mb-8 !leading-[1.2]">
               <span className="gradient-text">Exponential by Design™ Masterclass:</span> Why Growth in the AI Era Is a Design Problem - Not a Technology Problem
             </h1>
 
@@ -63,17 +69,17 @@ export default function Hero() {
             </p>
 
             {/* CTA Buttons */}
-            <div className="flex flex-wrap gap-4 mb-8">
+            <div className="flex flex-col gap-2 md:grid md:grid-cols-2 md:gap-4 mb-8">
               <button 
                 onClick={handleOpenModal}
-                className="px-10 py-4 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] text-white rounded-lg text-base font-semibold transition-all duration-300 ease-in-out hover:opacity-90 hover:scale-105 shadow-lg shadow-[#9d7035]/20"
+                className="w-full px-3 py-2 md:px-10 md:py-4 text-xs md:text-base bg-gradient-to-br from-[#9d7035] to-[#c1a35e] text-white rounded-lg font-semibold transition-all duration-300 ease-in-out hover:opacity-90 hover:scale-105 shadow-lg shadow-[#9d7035]/20"
               >
                 Reserve My Seat
               </button>
-              <button className="px-6 py-3 bg-dark-container text-white rounded-lg font-medium hover:bg-dark-gray transition-all border border-gray-700 hover:border-gray-600">
-                Download Free Chapter
-              </button>
-              <button className="px-6 py-3 bg-dark-container text-white rounded-lg font-medium hover:bg-dark-gray transition-all border border-gray-700 hover:border-gray-600">
+              <button 
+                onClick={handleScrollToAgenda}
+                className="w-full px-2 py-2 md:px-6 md:py-3 text-xs md:text-base bg-dark-container text-white rounded-lg font-medium hover:bg-dark-gray transition-all border border-gray-700 hover:border-gray-600"
+              >
                 See agenda
               </button>
             </div>
@@ -115,14 +121,6 @@ export default function Hero() {
                     <span className="text-white text-sm md:text-base font-medium">12:00 PM - 4:30 PM SGT</span> */}
                   </div>
                 </div>
-
-                {/* Register Now Button */}
-                <button
-                  onClick={handleOpenModal}
-                  className="px-8 py-4 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] hover:opacity-90 text-white rounded-lg text-base font-semibold transition-all duration-300 ease-in-out shadow-lg shadow-[#9d7035]/20 self-start"
-                >
-                  Register Now
-                </button>
               </div>
             </div>
           </div>

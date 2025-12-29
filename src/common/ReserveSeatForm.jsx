@@ -1,6 +1,8 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 export default function ReserveSeatForm({ onSubmit }) {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -16,6 +18,8 @@ export default function ReserveSeatForm({ onSubmit }) {
   });
 
   const [errors, setErrors] = useState({});
+  const [submitting, setSubmitting] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -85,16 +89,108 @@ export default function ReserveSeatForm({ onSubmit }) {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = (e) => {
+  const submitToMailchimp = (values) => {
+    return new Promise((resolve, reject) => {
+      const MAILCHIMP_URL = "https://xbd.us11.list-manage.com/subscribe/post-json";
+      const u = "279a02443a57a9821b4e42c23";
+      const id = "86fb4e5f29";
+
+      const params = new URLSearchParams({
+        u,
+        id,
+        EMAIL: values.workEmail,
+        FNAME: values.firstName,
+        LNAME: values.lastName,
+        PHONE: values.mobile,
+        COUNTRY: values.country,
+        DES: values.designation,
+        ORG: values.organization,
+        IND: values.industry,
+        EMPLOYEES: values.employees,
+        STATE: values.state,
+        CITY: values.city,
+        "b_279a02443a57a9821b4e42c23_86fb4e5f29": "",
+      });
+
+      const callbackName = "mcReserveSeatCallback_" + Date.now();
+      params.append("c", callbackName);
+
+      const script = document.createElement("script");
+      script.src = `${MAILCHIMP_URL}?${params.toString()}`;
+      script.async = true;
+
+      window[callbackName] = (data) => {
+        delete window[callbackName];
+        script.remove();
+
+        if (data.result === "success" || (data.msg && data.msg.includes("already subscribed"))) {
+          resolve(data);
+        } else {
+          reject(new Error(data.msg || "Subscription failed"));
+        }
+      };
+
+      script.onerror = () => {
+        delete window[callbackName];
+        script.remove();
+        reject(new Error("Network error. Please try again."));
+      };
+
+      document.body.appendChild(script);
+
+      setTimeout(() => {
+        if (window[callbackName]) {
+          delete window[callbackName];
+          script.remove();
+          reject(new Error("Request timed out. Please try again."));
+        }
+      }, 10000);
+    });
+  };
+
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setErrorMessage('');
     
-    if (validateForm()) {
+    if (!validateForm()) {
+      return;
+    }
+
+    setSubmitting(true);
+    try {
+      await submitToMailchimp(formData);
+      
+      // Store submitted data before resetting
+      const submittedData = { ...formData };
+      
+      // Reset form
+      setFormData({
+        firstName: '',
+        lastName: '',
+        workEmail: '',
+        country: '',
+        designation: '',
+        organization: '',
+        mobile: '',
+        industry: '',
+        employees: '',
+        state: '',
+        city: ''
+      });
+      setErrors({});
+      
+      // Navigate to thank you page
+      navigate('/thank-you');
+      
+      // Call onSubmit callback if provided (for any additional handling)
       if (onSubmit) {
-        onSubmit(formData);
-      } else {
-        console.log('Form submitted:', formData);
-        alert('Form submitted successfully!');
+        onSubmit(submittedData);
       }
+    } catch (error) {
+      console.error('Mailchimp submission error:', error);
+      setErrorMessage(error.message || 'Something went wrong. Please try again.');
+    } finally {
+      setSubmitting(false);
     }
   };
 
@@ -168,32 +264,6 @@ export default function ReserveSeatForm({ onSubmit }) {
           />
           {errors.workEmail && (
             <p className="mt-1 text-sm text-red-400">{errors.workEmail}</p>
-          )}
-        </div>
-
-        {/* Select Country */}
-        <div>
-          <label htmlFor="country" className="block text-sm font-medium text-white/70 mb-2">
-            Select Country <span className="text-red-400">*</span>
-          </label>
-          <select
-            id="country"
-            name="country"
-            value={formData.country}
-            onChange={handleChange}
-            className={`w-full bg-black/30 border ${
-              errors.country ? 'border-red-500' : 'border-gray-700'
-            } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#c1a35e] transition-colors`}
-          >
-            <option value="">Select country</option>
-            {countries.map((country) => (
-              <option key={country} value={country} className="bg-dark-container">
-                {country}
-              </option>
-            ))}
-          </select>
-          {errors.country && (
-            <p className="mt-1 text-sm text-red-400">{errors.country}</p>
           )}
         </div>
 
@@ -312,6 +382,36 @@ export default function ReserveSeatForm({ onSubmit }) {
           )}
         </div>
 
+      </div>
+
+      {/* City - Full Width (First) */}
+      <div>
+        <label htmlFor="city" className="block text-sm font-medium text-white/70 mb-2">
+          City <span className="text-red-400">*</span>
+        </label>
+        <select
+          id="city"
+          name="city"
+          value={formData.city}
+          onChange={handleChange}
+          className={`w-full bg-black/30 border ${
+            errors.city ? 'border-red-500' : 'border-gray-700'
+          } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#c1a35e] transition-colors`}
+        >
+          <option value="">Select city</option>
+          {cities.map((city) => (
+            <option key={city} value={city} className="bg-dark-container">
+              {city}
+            </option>
+          ))}
+        </select>
+        {errors.city && (
+          <p className="mt-1 text-sm text-red-400">{errors.city}</p>
+        )}
+      </div>
+
+      {/* State and Country Grid (Second and Third) */}
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         {/* State */}
         <div>
           <label htmlFor="state" className="block text-sm font-medium text-white/70 mb-2">
@@ -338,48 +438,56 @@ export default function ReserveSeatForm({ onSubmit }) {
           )}
         </div>
 
-        {/* City */}
+        {/* Select Country */}
         <div>
-          <label htmlFor="city" className="block text-sm font-medium text-white/70 mb-2">
-            City <span className="text-red-400">*</span>
+          <label htmlFor="country" className="block text-sm font-medium text-white/70 mb-2">
+            Select Country <span className="text-red-400">*</span>
           </label>
           <select
-            id="city"
-            name="city"
-            value={formData.city}
+            id="country"
+            name="country"
+            value={formData.country}
             onChange={handleChange}
             className={`w-full bg-black/30 border ${
-              errors.city ? 'border-red-500' : 'border-gray-700'
+              errors.country ? 'border-red-500' : 'border-gray-700'
             } rounded-lg px-4 py-3 text-white focus:outline-none focus:border-[#c1a35e] transition-colors`}
           >
-            <option value="">Select city</option>
-            {cities.map((city) => (
-              <option key={city} value={city} className="bg-dark-container">
-                {city}
+            <option value="">Select country</option>
+            {countries.map((country) => (
+              <option key={country} value={country} className="bg-dark-container">
+                {country}
               </option>
             ))}
           </select>
-          {errors.city && (
-            <p className="mt-1 text-sm text-red-400">{errors.city}</p>
+          {errors.country && (
+            <p className="mt-1 text-sm text-red-400">{errors.country}</p>
           )}
         </div>
       </div>
 
+      {/* Error Message */}
+      {errorMessage && (
+        <div className="rounded-lg bg-red-500/20 border border-red-500/50 p-4 text-sm text-red-300">
+          {errorMessage}
+        </div>
+      )}
+
       {/* Terms and Conditions */}
-      <div className="pt-4 border-t border-gray-800">
+      {/* <div className="pt-4 border-t border-gray-800">
         <p className="text-sm text-white/60 leading-relaxed">
           The personal data you provide will be used to register you for an event. By completing this registration form, you accept the{' '}
           <a href="#" className="text-[#c1a35e] hover:text-[#9d7035] underline">T&Cs</a> and the{' '}
           <a href="#" className="text-[#c1a35e] hover:text-[#9d7035] underline">Privacy Policy</a> for VOSMOS Events Platform.
         </p>
-      </div>
+      </div> */}
 
       {/* Submit Button */}
       <button
         type="submit"
-        className="w-full px-8 py-4 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] text-white rounded-lg text-base font-semibold transition-all duration-300 ease-in-out hover:opacity-90 hover:scale-105 shadow-lg shadow-[#9d7035]/20"
+        disabled={submitting}
+        className="w-full px-8 py-4 bg-gradient-to-br from-[#9d7035] to-[#c1a35e] text-white rounded-lg text-base font-semibold transition-all duration-300 ease-in-out hover:opacity-90 hover:scale-105 shadow-lg shadow-[#9d7035]/20 disabled:opacity-70 disabled:cursor-not-allowed disabled:hover:scale-100"
       >
-        Register Now
+        {submitting ? 'Registering...' : 'Register Now'}
       </button>
     </form>
   );
